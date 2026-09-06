@@ -80,7 +80,7 @@ fi
 
 line_to_add_maybe="nameserver ${dns_server}"
 
-if grep --quiet -- "^${line_to_add_maybe}\$" /etc/resolv.conf ; then
+if grep -- "^${line_to_add_maybe}\$" /etc/resolv.conf >/dev/null 2>&1; then
    true "INFO: No need to add. line_to_add_maybe already in /etc/resolv.conf."
    exit 0
 fi
